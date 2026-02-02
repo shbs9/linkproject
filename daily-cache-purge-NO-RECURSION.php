@@ -163,7 +163,7 @@ class Daily_Cache_Purge {
                 if (is_object($batcache)) {
                     // For object format, call flush() method
                     if (method_exists($batcache, 'flush')) {
-                        $batcache->flush();
+                        $batcache->flush('', 0); // <-- updated here
                         $purge_in_progress = false;
                         return ['success' => true, 'output' => 'Batcache flushed (object)', 'error' => ''];
                     }
